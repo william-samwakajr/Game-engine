@@ -10,5 +10,8 @@ function loadAndCompileShader(id, shaderType) {
     let shaderSource = null,
         compiledShader = null;
     //step A: get the shader source from ther index.html
+    const shaderText = document.getElementById(id);
+    shaderSource = shaderText.firstChild.textContent;
+    const gl = core.getGl()
 
 }
