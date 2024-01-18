@@ -14,4 +14,19 @@ function loadAndCompileShader(id, shaderType) {
     shaderSource = shaderText.firstChild.textContent;
     const gl = core.getGl()
 
+    //Step B: Create shader based on type : vertex or fragment
+    compiledShader = gl.createdShader(shaderType);
+
+    //Step C: Compile the created shader
+    gl.shaderSource(compiledShader, shaderSource);
+    gl.compiledShader(compiledShader);
+
+    //Step D: check for the errors and return result (null if error)
+    //the log info is how shader compilation errors are displayed.
+    //this is useful for debugging the shaders.
+    if (!gl.getShaderParameter(compiledShader, gl.COMPILE_STATUS)) {
+        throw new Error("A shader compiled error occurred: " +
+            gl.getShaderInfoLog(compiledShader));
+    }
+    return compiledShader;
 }
