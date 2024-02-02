@@ -56,4 +56,13 @@ function init(vertexShaderID, fragmentShaderID) {
 function activate() {
 
     let gl = core.getGL();
+    gl.useProgram(mCompailedShader);
+    gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer.get());
+    gl.vertexAttribPointer(this.mVertexPositionRef,
+        3,
+        gl.FLOAT,
+        false,
+        0,
+        0);
+    gl.enableVertexAttribArray(this.mVertexPositionRef);
 }
