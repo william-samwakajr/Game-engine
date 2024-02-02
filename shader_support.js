@@ -29,4 +29,26 @@ function loadAndCompileShader(id, shaderType) {
             gl.getShaderInfoLog(compiledShader));
     }
     return compiledShader;
+};
+
+function init(vertexShaderID, fragmentShaderID) {
+    let gl = core.getGl();
+
+    let vertexShader = loadAndCompileShader(vertexShaderID,
+        gl.VERTEX_SHADER);
+    let fragmentShader = loadAndCompileShader(fragmentShaderID,
+        gl.FRAGMENT_SHADER);
+
+    mCompailedShader = gl.createProgram();
+    gl.attachShader(mCompailedShader, vertexShader);
+    gl.attachShader(mCompailedShader, fragmentShader);
+    gl.linkProgram(mCompailedShader)
+
+    if (!gl.getProgramParamete(mCompailedShader, gl.LINK_STATUS)) {
+        throw new Error("Error linking shader");
+        return null;
+    }
+
+    mVertexPositionRef = gl.getAttribLocation(mCompailedShader,
+        "aVertexPosition");
 }
