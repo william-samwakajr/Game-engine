@@ -52,3 +52,8 @@ function init(vertexShaderID, fragmentShaderID) {
     mVertexPositionRef = gl.getAttribLocation(mCompailedShader,
         "aVertexPosition");
 }
+
+function activate() {
+
+    let gl = core.getGL();
+}
