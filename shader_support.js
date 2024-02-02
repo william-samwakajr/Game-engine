@@ -65,4 +65,6 @@ function activate() {
         0,
         0);
     gl.enableVertexAttribArray(this.mVertexPositionRef);
-}
+};
+
+export { init, activate };
