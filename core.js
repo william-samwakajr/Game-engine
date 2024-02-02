@@ -1,4 +1,6 @@
  "use strict";
+ import * as vertexBuffer from "./vertex_buffer.js";
+ import * as simpleShader from "./shader_support.js";
  let mGL = null;
 
  function getGL() {
