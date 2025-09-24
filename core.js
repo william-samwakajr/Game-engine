@@ -33,3 +33,4 @@
      initWebGl('board')
      clearCanvas()
  }
+ //joan was here
